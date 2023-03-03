@@ -12,3 +12,4 @@ test:
 	mkdir -p build
 	cmake -B build -S tests
 	cmake --build build
+	
