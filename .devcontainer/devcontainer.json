@@ -2,7 +2,7 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.166.1/containers/cpp
 {
     "name": "Stm32G4 Template",
-    "image": "konplandocker.azurecr.io/mcubuilder-arm:1.5.0",
+    "image": "konplandocker.azurecr.io/mcubuilder-arm:1.6.0",
     "runArgs": [
         "--rm"
     ],
@@ -27,5 +27,5 @@
         "hediet.vscode-drawio",
         "ms-vscode.cpptools-extension-pack"
     ],
-    "postStartCommand": "sudo bash .devcontainer/set-host-ip.sh"
+    // "postStartCommand": "sudo bash .devcontainer/set-host-ip.sh"
 }
