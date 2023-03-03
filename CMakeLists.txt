@@ -2,16 +2,19 @@
 cmake_minimum_required(VERSION 3.15)
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/gcc-arm-none-eabi.cmake)
 
+if (NOT DEFINED PROJECT_VERSION)
+  set(PROJECT_VERSION 0.0.0)
+endif()
+
 project("Stm32G4-Template" VERSION ${PROJECT_VERSION} LANGUAGES C ASM CXX)
 message("Version: ${CMAKE_PROJECT_VERSION}")
 set(CMAKE_EXPORT_COMPILE_COMMANDS OFF)
 
 # Set debug mode as default
 if ("${CMAKE_BUILD_TYPE}" STREQUAL "")
-set(CMAKE_BUILD_TYPE Debug)
+    set(CMAKE_BUILD_TYPE Debug)
 endif()
 message("Build type: ${CMAKE_BUILD_TYPE}")
-
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
@@ -22,7 +25,6 @@ set(CMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES ${CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTOR
 set(CMAKE_CXX_EXTENSIONS ON)
 
 add_executable(${CMAKE_PROJECT_NAME})
-
 add_subdirectory(src)
 
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE

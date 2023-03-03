@@ -1,9 +1,4 @@
 {
-    "files.associations": {
-        "*.excalidraw": "json",
-        "*.excalidrawlib": "json",
-        "array": "c",
-        "cstdio": "cpp",
-        "span": "cpp"
-    }
+    "C_Cpp.autoAddFileAssociations": false,
+    "C_Cpp.intelliSenseEngineFallback": "enabled",
 }
