@@ -1,14 +1,10 @@
 # STM32 Minimal CMake project for C/C++ projects
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.15)
 ###############################################################################
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/gcc-arm-none-eabi.cmake)
 
-# Set project name and some defaults
-if ("${PROJECT_NAME}" STREQUAL "")
-    set(PROJECT_NAME firmware)
-endif()
-project("Stm32G4" C ASM CXX)
+project("Stm32G4" VERSION 1.0.0 LANGUAGES C ASM CXX)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Set debug mode as default
@@ -122,3 +118,7 @@ if (${DUMP_ASM})
     add_custom_command(TARGET ${EXECUTABLE} POST_BUILD
         COMMAND ${CMAKE_OBJDUMP} -D -C $<TARGET_FILE:${EXECUTABLE}> > ${EXECUTABLE}.s)
 endif()
+
+# Delte the Makefile from Cubemx
+add_custom_command(TARGET ${EXECUTABLE} POST_BUILD
+    COMMAND rm -rf ${STM32_ROOT_DIR}/Makefile)

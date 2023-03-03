@@ -33,9 +33,10 @@ private:
     uint16_t pin;
 };
 
-void projectMain()
+/// @brief entry point of the application
+void app_run()
 {
-    Led led(GPIOD, GPIO_PIN_15);
+    Led led(LD2_GPIO_Port, LD2_Pin);
 
     // Newer C++ features
     constexpr auto arr = std::to_array({1, 2, 3, 4, 5});
