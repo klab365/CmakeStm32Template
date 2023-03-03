@@ -1,14 +1,20 @@
 # STM32 Minimal CMake project for C/C++ projects
 cmake_minimum_required(VERSION 3.15)
-include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/gcc-arm-none-eabi.cmake)
 
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
+# Set Project version with -DPROJECT_VERSION=x.x.x otherwhise the version would be 0.0.0
 if (NOT DEFINED PROJECT_VERSION)
   set(PROJECT_VERSION 0.0.0)
 endif()
 
+# options
+option(ENABLE_TESTS "Build the tests" ON)
+option(ENABLE_PLATFORM_BUILD "Build for the target" OFF)
+
 project("Stm32G4-Template" VERSION ${PROJECT_VERSION} LANGUAGES C ASM CXX)
 message("Version: ${CMAKE_PROJECT_VERSION}")
-set(CMAKE_EXPORT_COMPILE_COMMANDS OFF)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Set debug mode as default
 if ("${CMAKE_BUILD_TYPE}" STREQUAL "")
@@ -73,4 +79,12 @@ if (${DUMP_ASM})
     add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_OBJDUMP} -D -C $<TARGET_FILE:${CMAKE_PROJECT_NAME}> > ${CMAKE_PROJECT_NAME}.s
     )
+endif()
+
+# Testing
+if(ENABLE_TESTS)
+    include(googletest/common)
+    enable_testing()
+    googletest_get_populate()
+    add_subdirectory(tests)
 endif()

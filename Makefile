@@ -4,12 +4,12 @@ dependency:
 fw:
 	rm -rf build
 	mkdir -p build
-	cmake -B build -S . -DPROJECT_VERSION=1.2.3 -DCMAKE_BUILD_TYPE=Release
+	cmake -B build -S . -DPROJECT_VERSION=1.2.3 -D CMAKE_TOOLCHAIN_FILE=cmake/gcc-arm-none-eabi.cmake -DCMAKE_BUILD_TYPE=Release
 	cmake --build build
 
-test:
+host:
 	rm -rf build
 	mkdir -p build
-	cmake -B build -S tests
+	cmake -B build -S .
 	cmake --build build
 	

@@ -1,3 +1,6 @@
 add_subdirectory(configured)
 add_subdirectory(app)
-add_subdirectory(bsp/Stm32G4)
+
+if(${ENABLE_PLATFORM_BUILD})
+    add_subdirectory(bsp/Stm32G4)
+endif(${ENABLE_PLATFORM_BUILD})
