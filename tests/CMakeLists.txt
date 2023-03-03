@@ -1,8 +1,9 @@
 message("Process tests")
 
 cmake_minimum_required(VERSION 3.15)
-set(BINARY_NAME ${PROJECT_NAME}_TESTS)
+set(BINARY_NAME Stm32G3_HostTests)
 project(${BINARY_NAME} C ASM CXX)
+enable_testing()
 
 include(FetchContent)
 
@@ -15,10 +16,14 @@ FetchContent_MakeAvailable(googletest)
 add_library(GTest::GTest INTERFACE IMPORTED)
 target_link_libraries(GTest::GTest INTERFACE gtest_main)
 
-# Link project with what we want to test and the GTest and pthread library
 add_executable(${BINARY_NAME} MyFirstTest.cpp)
 
-target_link_libraries(${BINARY_NAME} ${GTEST_LIBRARIES} pthread)
+add_subdirectory(../src/app app)
+
+target_link_libraries(${BINARY_NAME}
+  PRIVATE
+  GTest::GTest  
+)
 
 add_test(${BINARY_NAME} ${BINARY_NAME})
 

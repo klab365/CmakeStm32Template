@@ -7,6 +7,8 @@ extern "C"
 
     void app_run();
 
+    int calculate(int a, int b);
+
 #ifdef __cplusplus
 }
 #endif

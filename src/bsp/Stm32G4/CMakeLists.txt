@@ -23,6 +23,7 @@ set(STM32CUBEMX_INCLUDE_DIRECTORIES
     ${STM32_ROOT_DIR}/Drivers/${MCU_FAMILY}_HAL_Driver/Inc/Legacy
     ${STM32_ROOT_DIR}/Drivers/CMSIS/Device/ST/${MCU_FAMILY}/Include
     ${STM32_ROOT_DIR}/Drivers/CMSIS/Include
+    ${STM32_ROOT_DIR}/ImplementedInterfaces
 )
 
 file(GLOB_RECURSE STM32CUBEMX_SOURCES CONFIGURE_DEPENDS
@@ -62,4 +63,5 @@ target_link_options(${CMAKE_PROJECT_NAME}
 target_compile_definitions(
     ${CMAKE_PROJECT_NAME} 
     PRIVATE
-    USE_HAL_DRIVER)
+    USE_HAL_DRIVER
+)

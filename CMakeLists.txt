@@ -27,9 +27,6 @@ set(CMAKE_CXX_EXTENSIONS ON)
 add_executable(${CMAKE_PROJECT_NAME})
 add_subdirectory(src)
 
-enable_testing()
-add_subdirectory(tests)
-
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
     #$<$<CONFIG:Debug>:DEBUG>
 )
