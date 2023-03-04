@@ -8,6 +8,7 @@ target_link_libraries(${TEST_NAME}
   gtest
   gtest_main
   gmock
+  app
 )
 
 add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
