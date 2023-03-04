@@ -30,7 +30,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES ${CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES})
 set(CMAKE_CXX_EXTENSIONS ON)
 
-add_subdirectory(src)
+# Includes
+include(clang-tools/clang-format)
 
 # Testing
 if(ENABLE_TESTS)
@@ -39,3 +40,5 @@ if(ENABLE_TESTS)
     googletest_get_populate()
     add_subdirectory(tests)
 endif()
+
+add_subdirectory(src)
