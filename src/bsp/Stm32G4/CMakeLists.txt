@@ -6,12 +6,6 @@ set(STM32_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 ## Settings
 set(MCU_FAMILY STM32G4xx)
 set(MCU_MODEL STM32G474xx)
-set(CPU_PARAMETERS
-    -mcpu=cortex-m4
-    -mthumb
-    -mfpu=fpv4-sp-d16
-    -mfloat-abi=hard)
-
 
 ## Files
 set(STARTUP_SCRIPT ${STM32_ROOT_DIR}/startup_stm32g474xx.s)
@@ -49,19 +43,7 @@ target_include_directories(${CMAKE_PROJECT_NAME}
     ${STM32CUBEMX_INCLUDE_DIRECTORIES}
 )
 
-target_compile_options(${CMAKE_PROJECT_NAME}
-    PRIVATE
-    ${CPU_PARAMETERS}
-)
-
 target_link_options(${CMAKE_PROJECT_NAME} 
     PRIVATE
     -T${MCU_LINKER_SCRIPT}
-    ${CPU_PARAMETERS}
-)
-
-target_compile_definitions(
-    ${CMAKE_PROJECT_NAME} 
-    PRIVATE
-    USE_HAL_DRIVER
 )

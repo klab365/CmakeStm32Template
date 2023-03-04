@@ -28,12 +28,13 @@ if(${ENABLE_PLATFORM_BUILD})
             -Wuseless-cast
             -Wsuggest-override>
         $<$<CONFIG:Debug>:-Og -g3 -ggdb>
-        $<$<CONFIG:Release>:-Og -g0>
+        $<$<CONFIG:Release>:-Ofast>
+        $<$<CONFIG:RelWithDebInfo>:-Ofast -g>
+        $<$<CONFIG:MinSizeRel>:-Os>
     )
 
     target_link_options(${CMAKE_PROJECT_NAME} PRIVATE
         -Wl,-Map=${CMAKE_PROJECT_NAME}.map
-        $<$<VERSION_GREATER:$<C_COMPILER_VERSION>,10.3.1>:-Wl,--no-warn-rwx-segments>
         -Wl,--start-group
         -lc
         -lm
