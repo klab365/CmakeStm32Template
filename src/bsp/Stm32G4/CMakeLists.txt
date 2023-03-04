@@ -1,4 +1,4 @@
-message("Processing STM32 Files")
+message(STATUS "Processing STM32 Files")
 
 ## variables
 set(STM32_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
