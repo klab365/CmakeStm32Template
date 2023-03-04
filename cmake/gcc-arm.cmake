@@ -20,5 +20,5 @@ set(CMAKE_EXECUTABLE_SUFFIX_CXX ".elf")
 set(ENABLE_PLATFORM_BUILD ON)
 set(ENABLE_TESTS OFF)
 
-include(stm32g4)
 include(options)
+include(stm32g4)

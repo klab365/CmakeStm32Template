@@ -11,4 +11,9 @@ target_link_libraries(${TEST_NAME}
   application
 )
 
+target_compile_options(gtest
+    PRIVATE
+    -Wno-unded
+)
+
 add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
