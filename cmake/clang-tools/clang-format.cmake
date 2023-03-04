@@ -21,5 +21,5 @@ if(CLANG_FORMAT)
         ${SOURCE_DIR}
     )
 else()
-    message(ERROR "clang-format not found, not adding format and check-format targets")
+    message(WARNING "clang-format not found, not adding format and check-format targets")
 endif()
