@@ -4,11 +4,6 @@
 /// @brief entry point of the application
 void app_run()
 {
-    // while (true)
-    // {
-    //     led.toggle();
-    // }
-
     while (true)
     {
         /* code */

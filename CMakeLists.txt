@@ -2,6 +2,11 @@
 cmake_minimum_required(VERSION 3.15)
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
+# Set Project version with -DPROJECT_VERSION=x.x.x otherwhise the version would be 0.0.0
+if (NOT DEFINED PROJECT_VERSION)
+  set(PROJECT_VERSION 0.0.0)
+endif()
+
 project("Stm32G4-Template" VERSION ${PROJECT_VERSION} LANGUAGES C ASM CXX)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 message(STATUS "Version: ${CMAKE_PROJECT_VERSION}")
@@ -11,11 +16,6 @@ if ("${CMAKE_BUILD_TYPE}" STREQUAL "")
     set(CMAKE_BUILD_TYPE Debug)
 endif()
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
-
-# Set Project version with -DPROJECT_VERSION=x.x.x otherwhise the version would be 0.0.0
-if (NOT DEFINED PROJECT_VERSION)
-  set(PROJECT_VERSION 0.0.0)
-endif()
 
 # options
 option(ENABLE_TESTS "Build the tests" ON)
