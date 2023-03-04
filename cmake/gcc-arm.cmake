@@ -21,3 +21,4 @@ set(ENABLE_PLATFORM_BUILD ON)
 set(ENABLE_TESTS OFF)
 
 include(stm32g4)
+include(options)
