@@ -4,7 +4,7 @@ if(CLANG_FORMAT)
 
     add_custom_target(
         format
-        COMMAND 
+        COMMAND
         ${PROJECT_SOURCE_DIR}/tools/run-clang-format.py
         --recursive
         --in-place
@@ -14,10 +14,12 @@ if(CLANG_FORMAT)
 
     add_custom_target(
         check-format
-        COMMAND 
+        COMMAND
         ${PROJECT_SOURCE_DIR}/tools/run-clang-format.py
         --recursive
         --style=file
         ${SOURCE_DIR}
     )
+else()
+    message(ERROR "clang-format not found, not adding format and check-format targets")
 endif()
