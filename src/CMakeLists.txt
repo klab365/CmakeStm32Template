@@ -1,16 +1,16 @@
 add_subdirectory(app)
+add_subdirectory(configured)
 
 if(${ENABLE_PLATFORM_BUILD})
     add_executable(${CMAKE_PROJECT_NAME}) # exe for mcu
     add_subdirectory(bsp/Stm32G4)
-    add_subdirectory(configured)
     target_link_libraries(${CMAKE_PROJECT_NAME} "application")
 
-    target_link_options(${CMAKE_PROJECT_NAME} 
+    target_link_options(${CMAKE_PROJECT_NAME}
         PRIVATE
         -Wl,-Map=${CMAKE_PROJECT_NAME}.map
         -Wl,--print-memory-usage
-    )   
+    )
 
     add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_SIZE} $<TARGET_FILE:${CMAKE_PROJECT_NAME}>

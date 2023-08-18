@@ -1,13 +1,12 @@
 #pragma once
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
-    void app_run();
+void app_run();
 
-    int calculate(int a, int b);
+int calculate(int a, int b);
 
 #ifdef __cplusplus
 }

@@ -3,7 +3,6 @@
     "configurePresets": [
         {
             "name": "Target Debug",
-            "displayName": "Target Debug",
             "generator": "Eclipse CDT4 - Unix Makefiles",
             "binaryDir": "${sourceDir}/build/target/debug",
             "cacheVariables": {
@@ -13,12 +12,19 @@
         },
         {
             "name": "Target Release",
-            "displayName": "Target Release",
             "generator": "Eclipse CDT4 - Unix Makefiles",
             "binaryDir": "${sourceDir}/build/target/release",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "CMAKE_TOOLCHAIN_FILE": "${workspaceFolder}/cmake/gcc-arm.cmake"
+            }
+        },
+        {
+            "name": "Host Debug",
+            "generator": "Eclipse CDT4 - Unix Makefiles",
+            "binaryDir": "${sourceDir}/build/host/debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
             }
         }
     ]

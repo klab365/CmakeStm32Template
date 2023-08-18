@@ -4,7 +4,9 @@
     "name": "Stm32G4 Template",
     "image": "konplandocker.azurecr.io/mcubuilder-arm:1.6.0",
     "runArgs": [
-        "--rm"
+        "--rm",
+        "--network",
+        "host"
     ],
     "containerUser": "konplan",
     "settings": {
