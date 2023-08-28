@@ -15,7 +15,7 @@
             "generator": "Eclipse CDT4 - Unix Makefiles",
             "binaryDir": "${sourceDir}/build/target/release",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_BUILD_TYPE": "Release",
                 "CMAKE_TOOLCHAIN_FILE": "${workspaceFolder}/cmake/gcc-arm.cmake"
             }
         },

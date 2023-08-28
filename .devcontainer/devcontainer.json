@@ -9,25 +9,28 @@
         "host"
     ],
     "containerUser": "konplan",
-    "settings": {
-        "terminal.integrated.defaultProfile.linux": "bash"
-    },
     "mounts": [
         "source=${localEnv:HOME}/.ssh,target=/home/konplan/.ssh,type=bind"
     ],
-    // Add the IDs of extensions you want installed when the container is created.
-    "extensions": [
-        "ms-vscode.cpptools",
-        "marus25.cortex-debug",
-        "twxs.cmake",
-        "visualstudioexptteam.vscodeintellicode",
-        "cschlosser.doxdocgen",
-        "akiramiyakoda.cppincludeguard",
-        "mhutchie.git-graph",
-        "streetsidesoftware.code-spell-checker",
-        "editorconfig.editorconfig",
-        "hediet.vscode-drawio",
-        "ms-vscode.cpptools-extension-pack"
-    ],
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
+            "extensions": [
+                "ms-vscode.cpptools",
+                "marus25.cortex-debug",
+                "twxs.cmake",
+                "visualstudioexptteam.vscodeintellicode",
+                "cschlosser.doxdocgen",
+                "akiramiyakoda.cppincludeguard",
+                "mhutchie.git-graph",
+                "streetsidesoftware.code-spell-checker",
+                "editorconfig.editorconfig",
+                "hediet.vscode-drawio",
+                "ms-vscode.cpptools-extension-pack"
+            ]
+        }
+    }
     // "postStartCommand": "sudo bash .devcontainer/set-host-ip.sh"
 }
